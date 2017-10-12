@@ -4,13 +4,12 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
+* A repo for all my cisco automation scripts 
+* Version 1
 * [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
 ### How do I get set up? ###
 
-* Summary of set up
 * Configuration
 * Dependencies
 * Database configuration
