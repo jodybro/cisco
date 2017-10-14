@@ -1,0 +1,11 @@
+---
+- name: Validating configs on iOS devices
+  hosts: switch
+  gather_facts: no
+  connection: local
+  tasks:
+  
+    - name: Checking configs against "validate_ios.yml"
+      napalm_validate:
+        provider: "{{ creds }}"
+        validation_file: "{{ switch_validate_file }}"

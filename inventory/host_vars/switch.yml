@@ -1,0 +1,11 @@
+---
+
+creds:
+  username: ajoda
+  hostname: "{{ inventory_hostname }}"
+  password: cisco
+  dev_os: "ios"
+  optional_args:
+    secret: cisco
+
+switch_validate_file: "../validationFiles/switches/validateSwitch.yml"

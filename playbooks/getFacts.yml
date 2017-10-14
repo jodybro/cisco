@@ -1,0 +1,14 @@
+---
+- name: Getting facts from an iOS device
+  hosts: switch
+  gather_facts: no
+  connection: local
+  
+  tasks:
+    
+    - name: Getting facts
+      napalm_get_facts:
+        provider:  "{{ creds }}"
+        filter: "arp_table,mac_address_table,interfaces_ip"
+    - debug: var=napalm_arp_table
+

@@ -1,0 +1,17 @@
+---
+- name: Getting the output of "show version"
+  hosts: switch
+  connection: local
+  
+  tasks:
+
+    - name: Getting credentials
+      include_vars: ../secrets.yml
+
+
+
+    - name: Setting connection vars
+    - set_fact:
+        connectionVars:
+          username: "{{ creds['username'] }}"
+          password: "{{ creds

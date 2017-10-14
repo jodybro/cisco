@@ -2,20 +2,13 @@
 - name: Testing getting interfaces from napalm
   hosts: switch
   gather_facts: no
+  connection: local
 
   tasks:
-
-    - name: Getting creds
-      include_vars: ../secrets.yml
-
-    - set_fact:
-        connectionVars:
-          authorize: yes
-          host: "{{ inventory_hostname }}"
-          username: "{{ creds['username'] }}"
-          password: "{{ creds['password'] }}"
-          auth_pass: "{{ creds['auth_pass'] }}"
-          secret: "{{ creds['secret'] }}"
-
-    - name: Getting interfaces
+    
+    - name: Getting interface details from target device
       napalm_get_facts:
+        provider: "{{ creds }}"
+        filter: "interfaces,interfaces_ip"
+    - debug: var=napalm_interfaces
+    - debug: var=napalm_interfaces_ip
