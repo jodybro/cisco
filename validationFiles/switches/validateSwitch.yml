@@ -15,6 +15,12 @@
     Loopback0:
       ipv4:
         8.8.8.8:
-          prefix_length: 23
+          prefix_length: 24
       _mode: strict
-      
+#Checks that interfaces are up and the correct hostname has been applied      
+- get_facts:
+    interface_list:
+      list:
+        - Vlan1
+        - Vlan10
+      hostname: neo
