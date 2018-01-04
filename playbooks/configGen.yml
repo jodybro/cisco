@@ -1,0 +1,6 @@
+---
+- name: Playbook to generate a config file for a cisco device (Testing)
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - switches2
