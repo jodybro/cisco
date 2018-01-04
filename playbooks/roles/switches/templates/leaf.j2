@@ -1,0 +1,17 @@
+# Config for {{ item.hostname }}
+hostname {{ item.hostname | upper }}
+#
+interface loopback0
+  ip address {{ item.mgmt_ip }} 255.255.255.255
+#
+{% for uplink in item.uplinks %}
+interface {{ uplink.tor_port }}
+description {{ uplink.spine_port }}.{{ uplink.spine_switch | upper }}
+port link-mode route
+ip address {{ uplink.tor_ip }} 255.255.255.252
+#
+{% endfor %}
+{% for vlans in item.vlans %}
+vlan {{ vlans.id }}
+ name {{ vlans.name }}
+{% endfor %}

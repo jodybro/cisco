@@ -1,0 +1,5 @@
+---
+# tasks file for switches
+- name: Generating config file
+  template: src={{ item.profile }}.j2 dest=/Users/ajodas/Documents/cisco/compiled/{{ item.hostname }}.cfg
+  with_items: "{{ switches }}"
