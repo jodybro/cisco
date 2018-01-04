@@ -1,5 +1,13 @@
 ---
 # tasks file for switches
+- name: Creating compile directory for configs
+  file:
+    path: /Users/ajodas/Documents/cisco/compiled/switches/{{ item.hostname }} 
+    state: directory
+  with_items: "{{ switches }}"
+    
 - name: Generating config file
-  template: src={{ item.profile }}.j2 dest=/Users/ajodas/Documents/cisco/compiled/{{ item.hostname }}.cfg
+  template: 
+    src: "{{ item.profile }}.j2"
+    dest: /Users/ajodas/Documents/cisco/compiled/switches/{{ item.hostname }}/{{ item.hostname }}.cfg
   with_items: "{{ switches }}"
