@@ -22,3 +22,25 @@ switches:
         tor_ip: 10.50.50.1
         spine_port: Ten1/9/1
         spine_switch: spine01m
+
+  - hostname: leaf02m
+    profile: leaf
+    mgmt_ip: 10.0.0.2
+    vlans:
+      - id: 101
+        name: Data VLAN
+        ip: 10.0.1.2
+        subnet: 255.255.255.0
+      - id: 102
+        name: Voice VLAN
+        ip: 10.0.2.2
+        subnet: 255.255.255.0
+    uplinks:
+      - tor_port: Ten1/0/1
+        tor_ip: 10.50.50.1
+        spine_port: Ten1/9/1
+        spine_switch: spine01m
+      - tor_port: Ten1/0/1
+        tor_ip: 10.50.50.1
+        spine_port: Ten1/9/1
+        spine_switch: spine01m
