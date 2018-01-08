@@ -4,6 +4,7 @@ ospf_routers:
   
   - hostname: R1
     routing_protocol: ospf
+    mgmt_ip: 10.0.0.1
     router_ID: 1.1.1.1
     network_1: 192.168.1.0
     wildcard_mask_1: 0.0.0.255
@@ -13,6 +14,7 @@ ospf_routers:
   
   - hostname: R2
     routing_protocol: ospf
+    mgmt_ip: 10.0.0.2
     router_id: 2.2.2.2
     network_1: 192.168.1.0
     wildcard_mask_1: 0.0.0.255

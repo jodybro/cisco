@@ -1,0 +1,7 @@
+# Config for {{ item.hostname }}
+hostname {{ item.hostname | upper }}
+#
+interface loopback0
+  ip address {{ item.mgmt_ip }} 255.255.255.255
+#
+
