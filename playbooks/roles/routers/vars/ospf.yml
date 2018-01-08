@@ -1,10 +1,21 @@
 ---
 
 ospf_routers:
+  
   - hostname: R1
     routing_protocol: ospf
     router_ID: 1.1.1.1
     network_1: 192.168.1.0
     wildcard_mask_1: 0.0.0.255
     area_1: 0
-    interface: 
+    interface: Fa0/1
+    profile: router
+  
+  - hostname: R2
+    routing_protocol: ospf
+    router_id: 2.2.2.2
+    network_1: 192.168.1.0
+    wildcard_mask_1: 0.0.0.255
+    area_1: 0
+    interface: Fa0/1
+    profile: router

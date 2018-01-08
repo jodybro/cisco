@@ -1,2 +1,18 @@
 ---
 # tasks file for routers
+
+- include_vars:
+    dir: '/mnt/g/cisco/playbooks/roles/routers/vars'
+    
+
+- name: Creating compile directory for configs
+  file:
+    path: /mnt/g/cisco/compiled/routers/{{ item.hostname }} 
+    state: directory
+  with_items: "{{ ospf_routers }}"
+    
+- name: Generating config file
+  template: 
+    src: "{{ item.profile }}.j2"
+    dest: /mnt/g/cisco/compiled/routers/{{ item.hostname }}/{{ item.hostname }}.cfg
+  with_items: "{{ ospf_routers }}"
